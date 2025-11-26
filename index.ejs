@@ -1,0 +1,50 @@
+<!--<% layout("/layouts/boilerplate") %>
+  
+    <h3>All Listings</h3>
+    <!<form method="GET" action="/listings/new">
+      <button>Create New Listing</button>
+    </form> -->
+     <!--<% for(let listing of allListings) { %>
+    <div class="card" style="width: 18rem;">
+  <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" />
+  <div class="card-body">
+    <p class="card-text">
+      <%= listing.title %> <br>
+
+       <%= listing.price %>
+    </p>
+  </div>
+</div>
+      <% } %>
+
+  
+
+    <ul>
+      <% for(let listing of allListings) { %>
+      <li><a href="/listing/<%= listing._id %>"> <%= listing.title %> </a></li>
+      
+      <% } %>
+    </ul>
+  >
+  -->
+  <% layout("/layouts/boilerplate") %>
+
+<h3>All Listings</h3>
+
+<div class="row">
+  <% for(let listing of allListings) { %>
+    <div class="col-md-4 mb-3">
+      <div class="card" style="width: 25rem;">
+        <img src="<%= listing.image %>" class="card-img-top" alt="<%= listing.title %>" style="height:20rem"/>
+ 
+        <div class="card-body">
+          <h5 class="card-title"><%= listing.title %></h5>
+          <p class="card-text">&#8377; <%= listing.price.toLocaleString("en-IN") %>/night</p>
+          <a href="/listings/<%= listing._id %>" class="btn btn-primary">View Details</a>
+        </div>
+        
+      </div>
+    </div>
+  <% } %>
+</div>
+  
